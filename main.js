@@ -3,6 +3,8 @@
 let display = document.getElementById("monitor");
 let number = "";
 let result = 0;
+let state = "start";    // 入力状態のフラグ
+let mode = "";          // 整数or小数のフラグ
 
 
 // 関数を定義
@@ -18,107 +20,9 @@ function calculate() {
 
 $(document).ready(function(){
   
-  // [1]を押すと...
-  $("#number1").click(function(){
-    number += "1";
-    display.textContent = number;
-  });
-  
-  // [2]を押すと...
-  $("#number2").click(function(){
-    number += "2";
-    display.textContent = number;
-  });
-  
-  // [3]を押すと...
-  $("#number3").click(function(){
-    number += "3";
-    display.textContent = number;
-  });
-
-  // [4]を押すと...
-  $("#number4").click(function(){
-    number += "4";
-    display.textContent = number;
-  });
-  
-  // [5]を押すと...
-  $("#number5").click(function(){
-    number += "5";
-    display.textContent = number;
-  });
-  
-  // [6]を押すと...
-  $("#number6").click(function(){
-    number += "6";
-    display.textContent = number;
-  });
-  
-  // [7]を押すと...
-  $("#number7").click(function(){
-    number += "7";
-    display.textContent = number;
-  });
-  
-  // [8]を押すと...
-  $("#number8").click(function(){
-    number += "8";
-    display.textContent = number;
-  });
-  
-  // [9]を押すと...
-  $("#number9").click(function(){
-    number += "9";
-    display.textContent = number;
-  });
-  
-  // [0]を押すと...
-  $("#number0").click(function(){
-    if (number != "0" && number != "") {
-      number += "0";
-      display.textContent = number;
-    }
-  });
-  
-  // [00]を押すと...
-  $("#number00").click(function(){
-    if (number != "00" && number != "") {
-      number += "00";
-      display.textContent = number;
-    }
-  });
-  
-  // [.]を押すと...
-  $("#point").click(function(){
-    if (number == "") {
-      number += "0.";
-    } else {
-      number += ".";
-    }
-    display.textContent = number;
-  });
-  
-  // [+]を押すと...
-  $("#addition").click(function(){
-    number += "+";
-    display.textContent = number;
-  });
-  
-  // [-]を押すと...
-  $("#subtraction").click(function(){
-    number += "-";
-    display.textContent = number;
-  });
-  
-  // [*]を押すと...
-  $("#multiplication").click(function(){
-    number += "*";
-    display.textContent = number;
-  });
-  
-  // [/]を押すと...
-  $("#division").click(function(){
-    number += "/";
+  // [数字、算術演算子、小数点]を押すと...
+  $(".nap").click(function(){
+    number += this.textContent;
     display.textContent = number;
   });
   
