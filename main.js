@@ -10,7 +10,7 @@ let banNumber = "off";  // 数字入力可否のフラグ | off     | on     |
 /* 各フラグの補足説明
   1) 変数state
     < start > 何も入力していない状態。= 初期状態
-      ・ +,-,*,/ を入力できない。
+      ・ *,/,=を入力できない。
       ・ 小数点(.)を入力すると 0. が入力される。
   
     < numeric > 数字を入力した直後の状態。
@@ -39,6 +39,10 @@ let banNumber = "off";  // 数字入力可否のフラグ | off     | on     |
     
     < off > 数字入力ができる状態。
       ・ 数字を入力できる。
+  
+  (注) state === "start"において *,/ は入力できないが、一度+や-を入力すると、
+      *,/で上書きできてしまって計算不可となる点は解消できていない。
+          → 算術演算子でも +,- と *,/ をしっかり区別する必要がある。
 
 */
 
@@ -128,7 +132,7 @@ $(document).ready(function(){
   
   // [算術演算子]を押すと...
   $(".symbol").click(function(){
-    if (state === "start") {
+    if (state === "start" && (this.textContent === "*" || this.textContent === "/")) {
       return;
     }
     if (state === "arithmetic") {
