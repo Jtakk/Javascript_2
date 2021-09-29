@@ -1,10 +1,21 @@
+body {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+h3 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
 .calculator {
-  width: 600px;
+  max-width: 600px;
   padding: 15px;
-  background-color: silver;
+  background-color: #cee5f2;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 2px 4px 8px;
 }
 
 .monitor-box {
@@ -27,13 +38,22 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 15px;
 }
 
 .btn {
   height: 50px;
   font-size: 26px;
   border-radius: 5px;
+  color: black;
+  background-color: #61b0e2;
+  border: none;
+  box-shadow: 0 5px #369ada;
+}
+
+.btn:active {
+  box-shadow: none;
+  transform: translate(0, 5px);
 }
 
 .large-btn-A {
